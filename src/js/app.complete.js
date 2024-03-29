@@ -1,5 +1,3 @@
-// TODO: write code here
-
 const fileEl = document.querySelector('.overlapped');
 const overlapEl = document.querySelector('.overlap');
 const previewEl = document.querySelector('[data-id=preview]');
@@ -37,8 +35,8 @@ fileEl.addEventListener('change', (evt) => {
     a.download = file.name;
     a.href = URL.createObjectURL(file);
     a.rel = 'noopener';
-    // setTimeout(() => URL.revokeObjectURL(a.href), 60000);
-    // setTimeout(() => a.dispatchEvent(new MouseEvent('click')));
+    setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+    setTimeout(() => a.dispatchEvent(new MouseEvent('click')));
   } else if (file.type.startsWith('text/')) {
     readFile(file).then(data => textPreviewEl.value = data);
   }
