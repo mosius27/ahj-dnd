@@ -38,7 +38,9 @@ fileEl.addEventListener('change', (evt) => {
     setTimeout(() => URL.revokeObjectURL(a.href), 60000);
     setTimeout(() => a.dispatchEvent(new MouseEvent('click')));
   } else if (file.type.startsWith('text/')) {
-    readFile(file).then((data) => textPreviewEl.value = data);
+    readFile(file).then((data) => {
+      textPreviewEl.value = data;
+    });
   }
 });
 
