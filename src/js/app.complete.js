@@ -84,7 +84,8 @@ itemsEl.addEventListener('mouseleave', () => {
   ghostEl = null;
   draggedEl = null;
 });
-itemsEl.addEventListener('mouseup', evt => {
+
+itemsEl.addEventListener('mouseup', (evt) => {
   if (!draggedEl) {
     return;
   }
