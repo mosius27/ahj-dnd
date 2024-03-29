@@ -3,11 +3,24 @@
 const fileEl = document.querySelector('.overlapped');
 const overlapEl = document.querySelector('.overlap');
 const previewEl = document.querySelector('[data-id=preview]');
-const textPreviewEl = document.querySelector('[data-id=text-preview]')
+const textPreviewEl = document.querySelector('[data-id=text-preview]');
 
 overlapEl.addEventListener('click', () => {
   fileEl.dispatchEvent(new MouseEvent('click'));
 });
+
+function readFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', (evt) => {
+      resolve(evt.target.result);
+    });
+    reader.addEventListener('error', (evt) => {
+      reject(evt.target.error);
+    });
+    reader.readAsText(file);
+  });
+}
 
 fileEl.addEventListener('change', (evt) => {
   const files = Array.from(evt.currentTarget.files);
@@ -31,19 +44,6 @@ fileEl.addEventListener('change', (evt) => {
     readFile(file).then(data => textPreviewEl.value = data);
   }
 });
-
-function readFile(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.addEventListener('load', (evt) => {
-      resolve(evt.target.result);
-    });
-    reader.addEventListener('error', (evt) => {
-      reject(evt.target.error);
-    });
-    reader.readAsText(file);
-  });
-}
 
 const dropEl = document.querySelector('[data-id=drop-area]');
 
