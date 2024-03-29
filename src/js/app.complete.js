@@ -36,7 +36,6 @@ fileEl.addEventListener('change', (evt) => {
     const a = document.createElement('a');
     a.download = file.name;
     a.href = URL.createObjectURL(file);
-    console.log(a.href);
     a.rel = 'noopener';
     setTimeout(() => URL.revokeObjectURL(a.href), 60000);
     setTimeout(() => a.dispatchEvent(new MouseEvent('click')));
@@ -49,14 +48,10 @@ const dropEl = document.querySelector('[data-id=drop-area]');
 
 dropEl.addEventListener('dragover', (evt) => {
   evt.preventDefault(); // разрешает сброс объекта
-  console.log('dragover');
-  console.log(evt.dataTransfer.files);
 });
 
 dropEl.addEventListener('drop', (evt) => {
   evt.preventDefault(); // предотвращает открытие объекта вместо нашей страницы
-  console.log('drop');
-  console.log(evt.dataTransfer.files);
 });
 
 let draggedEl = null;
@@ -80,12 +75,6 @@ itemsEl.addEventListener('mousemove', (evt) => {
     return;
   }
 
-  const closest = document.elementFromPoint(evt.clientX, evt.clientY);
-  console.log(closest.textContent);
-  const { top } = closest.getBoundingClientRect();
-  console.log(evt.pageY);
-  console.log(window.scrollY + top + closest.offsetHeight / 2);
-
   ghostEl.style.left = `${evt.pageX - ghostEl.offsetWidth / 2}px`;
   ghostEl.style.top = `${evt.pageY - ghostEl.offsetHeight / 2}px`;
 });
@@ -104,14 +93,11 @@ itemsEl.addEventListener('mouseup', (evt) => {
   const closest = document.elementFromPoint(evt.clientX, evt.clientY);
 
   const { top } = closest.getBoundingClientRect();
-  console.log(window.scrollY + top + closest.offsetHeight / 2);
   if (evt.pageY > window.scrollY + top + closest.offsetHeight / 2) {
     evt.currentTarget.insertBefore(draggedEl, closest.nextElementSibling);
   } else {
     evt.currentTarget.insertBefore(draggedEl, closest);
   }
-
-  console.log(evt.offsetY);
 
   document.body.removeChild(ghostEl);
   ghostEl = null;
