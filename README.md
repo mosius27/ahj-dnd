@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/dxm4bx2vcdcgukfe/branch/master?svg=true)](https://ci.appveyor.com/project/mosius27/ahj-dnd/branch/master)
 
-#### Deployment: https://mosius27.github.io/ahj-DnD/
+#### Deployment: https://mosius27.github.io/ahj-dnd/
 
 Правила сдачи задания:
 
