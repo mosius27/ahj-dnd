@@ -23,9 +23,8 @@ environment:
   my_variable:
     secure: 96UgYaf97JTJx3agqODrDjydlnUNIMLYcLf/Zt4yJ4oTr2J+EuI9IcnCXQpSq9K6
 
-on_success:  # скрипт развёртывания
+deploy_script:  # скрипт развёртывания
   - git config --global credential.helper store
-  - ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
