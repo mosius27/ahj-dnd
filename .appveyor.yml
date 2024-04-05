@@ -21,9 +21,9 @@ test_script:
 
 environment:
   my_variable:
-    GITHUB_PAT: 96UgYaf97JTJx3agqODrDjydlnUNIMLYcLf/Zt4yJ4oTr2J+EuI9IcnCXQpSq9K6
+    secure: 96UgYaf97JTJx3agqODrDjydlnUNIMLYcLf/Zt4yJ4oTr2J+EuI9IcnCXQpSq9K6
 
-deploy_script:  # скрипт развёртывания
+on_success:  # скрипт развёртывания
   - git config --global credential.helper store
   - ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.name AppVeyor
