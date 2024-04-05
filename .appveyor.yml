@@ -19,9 +19,12 @@ build_script:
 test_script:
   - npm run lint  # скрипт тестирования
 
-deploy_script:  # скрипт развёртывания
+deploy:
   auth_token:
     secure: 96UgYaf97JTJx3agqODrDjydlnUNIMLYcLf
+  force_update: true
+
+deploy_script:  # скрипт развёртывания
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
