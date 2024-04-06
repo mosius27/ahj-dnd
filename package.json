@@ -1,51 +1,61 @@
 {
-  "name": "ahj-dnd",
+  "name": "dnd-trello",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "src/js/__tests__/e2e/e2e.server.js"
+    ]
+  },
   "version": "1.0.0",
+  "description": "Working with files: DnD Trello",
   "main": "index.js",
-  "repository": "https://github.com/mosius27/ahj-dnd",
-  "author": "mosius27 <mosius27@yandex.ru>",
-  "license": "MIT",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint .",
     "test": "jest --testPathPattern=./src/",
-    "coverage": "jest --coverage",
-    "e2e": "jest --testPathPattern=./e2e/ --runInBand",
-    "doc": "jsdoc -c jsdoc.conf.json",
-    "preshow:coverage": "npm run coverage",
-    "show:coverage": "live-server coverage/lcov-report",
-    "preshow:doc": "npm run doc",
-    "show:doc": "live-server doc",
-    "preshow:dist": "npm run build",
-    "show:dist": "live-server dist"
+    "coverage": "jest --testPathPattern=./src/ --coverage",
+    "e2e": "jest --testPathPattern=./e2e/ --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosius27/ahj-dnd"
+  },
+  "author": "Igor Chazov <mosius27@yandex.ru>",
+  "license": "ISC",
+  "homepage": "https://mosius27.github.io/ahj-dnd",
+  "bugs": {
+    "url": "https://github.com/mosius27/ahj-dnd/issues"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@types/jest": "^26.0.23",
-    "babel-jest": "^26.0.1",
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-jest": "^27.2.4",
     "babel-loader": "^8.2.2",
-    "css-loader": "^5.0.1",
-    "css-minimizer-webpack-plugin": "^3.0.2",
-    "eslint": "^7.17.0",
+    "css-loader": "^5.2.7",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "file-loader": "^6.2.0",
+    "eslint-plugin-import": "^2.24.2",
     "html-loader": "^1.3.2",
-    "html-webpack-plugin": "^4.5.1",
-    "jsdoc": "^3.6.7",
+    "html-webpack-plugin": "^4.5.2",
+    "jest": "^27.2.4",
     "live-server": "^1.2.1",
-    "mini-css-extract-plugin": "^1.3.3",
-    "terser-webpack-plugin": "^5.0.3",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.11.1",
-    "webpack-cli": "^4.3.1",
-    "webpack-dev-server": "^3.11.1",
-    "webpack-merge": "^5.7.3"
+    "mini-css-extract-plugin": "^1.6.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.8",
+    "puppeteer": "^10.4.0",
+    "terser-webpack-plugin": "^5.2.4",
+    "webpack": "^5.57.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "core-js": "^3.10.2"
+    "@yarnpkg/pnpify": "^3.0.1-rc.9",
+    "core-js": "^3.18.3",
+    "push-dir": "^0.4.1"
   }
 }

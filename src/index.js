@@ -1,3 +1,4 @@
-import './css/null.css';
 import './css/style.css';
+import './licenses.txt';
+
 import './js/app';

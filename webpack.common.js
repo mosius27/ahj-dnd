@@ -6,7 +6,9 @@ module.exports = {
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '',
+    assetModuleFilename: 'assets/[name][hash][ext]',
+    // publicPath: '',
+    clean: true,
   },
   module: {
     rules: [
@@ -26,31 +28,28 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'assets/[hash].[ext]',
-            },
-          },
-        ],
-      },
-      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader, 'css-loader',
         ],
       },
       {
-        test: /\.svg$/,
+        test: /\.(ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(txt)$/,
         type: 'asset/resource',
       },
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
+      favicon: './src/img/favicon.png',
       template: './src/index.html',
       filename: './index.html',
     }),

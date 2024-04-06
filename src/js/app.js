@@ -1,10 +1,12 @@
-import DnD from './DnD';
-import Trello from './Trello';
+import PageUi from './PageUi';
+import data from './Utils';
+import StateService from './StateService';
+import PageController from './PageController';
 
-const trello = new Trello();
+const pageUi = new PageUi(data);
+pageUi.bindToDOM(document.querySelector('.page'));
 
-trello.bindToDOM(document.querySelector('.container'));
-trello.drawUI();
-trello.toAppoint();
-const dnd = new DnD(trello);
-dnd.toAppoint();
+const stateService = new StateService(localStorage);
+const pageCtrl = new PageController(pageUi, stateService);
+
+pageCtrl.init();

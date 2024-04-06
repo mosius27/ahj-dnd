@@ -1,14 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/dxm4bx2vcdcgukfe/branch/master?svg=true)](https://ci.appveyor.com/project/mosius27/ahj-dnd/branch/master)
+# Работа с файлами, DnD
 
-#### Deployment: https://mosius27.github.io/ahj-dnd/
-
-Правила сдачи задания:
-
-1. **Важно**: в рамках этого ДЗ нужно использовать yarn (поэтому файла `package-lock.json` в репозитории быть не должно)
-2. Всё должно собираться через Webpack (включая картинки и стили) и выкладываться на Github Pages через Appveyor
-3. В README.md должен быть размещён бейджик сборки и ссылка на Github Pages
-4. В качестве результата присылайте проверяющему ссылки на ваши GitHub-проекты
-5. Авто-тесты писать не требуется
+#### [![Build status](https://ci.appveyor.com/api/projects/status/ibj92eqnwpy6m1de?svg=true)](https://ci.appveyor.com/project/mosius27/ahj-dnd) [[Github Pages](https://mosius27.github.io/ahj-dnd)]
 
 ---
 
